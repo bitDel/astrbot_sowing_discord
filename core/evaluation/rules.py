@@ -30,6 +30,7 @@ class GoodEmojiRule(Rule):
         self.bad_emoji_ids = [5, 9, 10, 23, 25, 26, 27, 32, 33, 34, 38, 39, 41, 96, 97, 98, 100, 102, 103, 104, 106, 111, 120, 123, 173, 174, 176, 181, 240, 262, 264, 265, 266, 267, 268, 270, 272, 273, 278, 284, 285, 287, 322, 326, 10060, 10068, 128027, 128074, 128166, 128168, 128527, 128530, 128531, 128532, 128557, 128560, 128563]
 
     async def evaluate(self, event: AstrMessageEvent, message_id: int) -> bool:
+        return True
         """评价一条转发消息是否应该被转发, 规则: 好表情数量大于坏表情数量
         
         Args:
@@ -39,13 +40,14 @@ class GoodEmojiRule(Rule):
         Returns:
             bool: 是否应该被转发
         """
-        message_handler = MessageHandler(event)
-        emoji_count_dict = await message_handler.fetch_emoji_like(message_id)
-        good_emoji_count = 0
-        bad_emoji_count = 0
-        for emoji_id, emoji_count in emoji_count_dict.items():
-            if emoji_id in self.good_emoji_ids:
-                good_emoji_count += emoji_count
-            elif emoji_id in self.bad_emoji_ids:
-                bad_emoji_count += emoji_count
-        return good_emoji_count >= bad_emoji_count
+#         message_handler = MessageHandler(event)
+ #        emoji_count_dict = await message_handler.fetch_emoji_like(message_id)
+ #        good_emoji_count = 0
+ #        bad_emoji_count = 0
+ #        for emoji_id, emoji_count in emoji_count_dict.items():
+ #            if emoji_id in self.good_emoji_ids:
+ #                good_emoji_count += emoji_count
+ #            elif emoji_id in self.bad_emoji_ids:
+ #                bad_emoji_count += emoji_count
+        
+        # return good_emoji_count >= bad_emoji_count
