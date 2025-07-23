@@ -7,4 +7,4 @@ ROOT_DIR = os.path.dirname(os.path.dirname(CURRENT_DIR))
 TEMP_DIR = os.path.join(ROOT_DIR, "sowing_discord_cache")
 
 os.makedirs(TEMP_DIR, exist_ok=True)
-WAITING_TIME = 5
+WAITING_TIME = 10
