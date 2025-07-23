@@ -21,5 +21,5 @@ class Evaluator:
         """
         for rule in self.rules:
             if not await rule.evaluate(self.event, message_id):
-                return False
+                return True
         return True 
